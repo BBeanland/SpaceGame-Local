@@ -1,6 +1,6 @@
 package utils;
 import screen.Render;
-/** A point in 2D space */
+/** A point in 2D space, or a Box */
 public class Point2D {
 	private int x, y;
 	public Point2D() {
