@@ -1,5 +1,4 @@
 package screen;
-import org.lwjgl.Sys;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import java.nio.ByteBuffer;
@@ -21,7 +20,8 @@ public class Render {
 		disp = new Display();
 		// Setup an error callback. The default implementation
 		// will print the error message in System.err.
-		glfwSetErrorCallback(errorCallback = errorCallbackPrint(System.err));
+		//glfwSetErrorCallback(errorCallback = errorCallbackPrint(System.err));
+		glfwSetErrorCallback(errorCallback);
 		// Initialize GLFW. Most GLFW functions will not work before doing this.
 		if (glfwInit() != GL11.GL_TRUE)
 			throw new IllegalStateException("Unable to initialize GLFW");
@@ -41,7 +41,6 @@ public class Render {
 					glfwSetWindowShouldClose(window, GL_TRUE); // We will detect this in our rendering loop
 				if(key == GLFW_KEY_RIGHT || key == GLFW_KEY_D)
 					disp.movePlayer(true);			
-				
 			}
 		});
 		// Get the resolution of the primary monitor
@@ -50,8 +49,7 @@ public class Render {
 		glfwSetWindowPos(
 				window,
 				(GLFWvidmode.width(vidmode) - Render.ScreenDim_X) / 2,
-				(GLFWvidmode.height(vidmode) - Render.ScreenDim_Y) / 2
-				);
+				(GLFWvidmode.height(vidmode) - Render.ScreenDim_Y) / 2);
 		// Make the OpenGL context current
 		glfwMakeContextCurrent(window);
 		// Enable v-sync
@@ -69,8 +67,8 @@ public class Render {
 			keyCallback.release();
 		} finally {
 			// Terminate GLFW and release the GLFWerrorfun
-			glfwTerminate();
 			errorCallback.release();
+			glfwTerminate();
 		}
 	}
 	public void loop() {
@@ -79,7 +77,7 @@ public class Render {
 		glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
 		// Run the rendering loop until the user has attempted to close
 		// the window or has pressed the ESCAPE key.
-		while ( glfwWindowShouldClose(window) == GL_FALSE ) {
+		while (glfwWindowShouldClose(window) == GL_FALSE) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
 			glfwSwapBuffers(window); // swap the color buffers
 			// Poll for window events. The key callback above will only be
