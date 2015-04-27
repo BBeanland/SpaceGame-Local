@@ -9,8 +9,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Class for working with lwjgl */
 public class Render {
 	private static String Window_Title = "Space Invaders 3D!";
-	public static int ScreenDim_X = 1280;
-	public static int ScreenDim_Y = 720;
+	public static int ScreenDim_X = 1000;
+	public static int ScreenDim_Y = 900;
 	private GLFWErrorCallback errorCallback;
 	private GLFWKeyCallback keyCallback;
 	private long window;
@@ -53,7 +53,7 @@ public class Render {
 		// Make the OpenGL context current
 		glfwMakeContextCurrent(window);
 		// Enable v-sync
-		glfwSwapInterval(1);
+		glfwSwapInterval(10);
 		// Make the window visible
 		glfwShowWindow(window);
 	}

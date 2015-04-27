@@ -5,8 +5,9 @@ import utils.Point2D;
 public class Display {
 	public static final int PlayerMoveAmount = 8;
 	private Entity playerEnt;
+	private Point2D playerPos;
 	public Display() {
-		playerEnt = new Entity(0, new Point2D());
+		playerEnt = new Entity(0, new Point2D(), new Point2D(Render.ScreenDim_X,Render.ScreenDim_Y));
 		//if(playerEnt.)
 	}
 	public void movePlayer(boolean dir) {

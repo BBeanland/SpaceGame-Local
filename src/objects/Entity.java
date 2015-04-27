@@ -5,14 +5,15 @@ import utils.Point2D;
 public class Entity {
 	Point2D pos = null;  
 	Texture tex;
-	
-	long delta; //see move; time that has passed per move
-	/** will contain the speed of the entity horiz and vertically in (pixels/ a second??) */
+	/** See move; time that has passed per move */
+	long delta; 
+	/** Will contain the speed of the entity horiz and vertically in pixels per second */
 	Point2D move; //careful because of ints? do we want to change to double?
 	
 	
-	public Entity(int eType, Point2D p) { //can we make the entity get the screen too? we need it for dx dy changes as well as resizing
-		pos = p;
+	public Entity(int eType, Point2D pPos, Point2D bBox) {
+		//can we make the entity get the screen too? we need it for dx dy changes as well as resizing
+		pos = pPos;
 		move = new Point2D(500,500); //we need to test to determine a manageable speed
 	}
 	
@@ -25,28 +26,28 @@ public class Entity {
 		return tex;
 	}
 	/** The entity will move itself based on a certain amount of time passing.
-	 * delta is the amount of time that has passed in milliseconds
+	 * 	delta is the amount of time that has passed in milliseconds
 	 */
 	public void move(long delta) {
 		// will update the location of the entity based on move speeds
-		int[] currentSpeed = this.getSpeeds();
-		int moveX = currentSpeed[0];
-		int moveY = currentSpeed[1];
-		int x = (delta * moveX) / 1000;
-		int y = (delta * moveY) / 1000;
+		int moveX = move.getCoords()[0];
+		int moveY = move.getCoords()[1];
+		int x = (int)(delta * moveX) /60;
+		int y = (int)(delta * moveY) /60;
 		pos.offsetPoint(x,y);
-	}
-
-	/** Returns an array with the horizontal and vertical speeds of the entity */
-	public int[] getSpeeds() {
-		return move.getCoords();
 	}
 	/** Does logic for this entity about concurrent events and if certain things happen? */
 	public void doLogic() {
+		
 	}
 
 	public boolean collidesWith(Entity other) {
 		//set bounds and then check for collision
+		int tPosX = pos.getCoords()[0];
+		int tPosY = pos.getCoords()[1];
+		int oPosX = other.getCoords()[0];
+		int oPosY = other.get.getCoords()[1];
+		if()
 		return false;
 	}
 }
