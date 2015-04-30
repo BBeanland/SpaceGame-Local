@@ -7,7 +7,7 @@ public class Display {
 	private Entity playerEnt;
 	private Point2D playerPos;
 	public Display() {
-		playerEnt = new Entity(0, new Point2D(), new Point2D(Render.ScreenDim_X,Render.ScreenDim_Y));
+		playerEnt = new Entity(0, new Point2D(0,0), new Point2D(Render.ScreenDim_X,Render.ScreenDim_Y));
 		//if(playerEnt.)
 	}
 	public void movePlayer(boolean dir) {

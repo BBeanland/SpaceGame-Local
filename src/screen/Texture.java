@@ -7,7 +7,7 @@ import utils.Point2D;
 import de.matthiasmann.twl.utils.PNGDecoder;
 public class Texture {
 	private InputStream fileIn = null;
-	private PNGDecoder decoder = null;
+	private PNGDecoder decoder = null; //do I import PNG Decoder? 
 	private Point2D dims = null;
 	private ByteBuffer buff = null;
 	/** Load an image from a file name */

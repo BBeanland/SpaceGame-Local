@@ -9,14 +9,22 @@ public class Entity {
 	long delta; 
 	/** Will contain the speed of the entity horiz and vertically in pixels per second */
 	Point2D move; //careful because of ints? do we want to change to double?
+	// WE need to revert changes so that we can set the x and y speed again because we need it 
 	
 	
 	public Entity(int eType, Point2D pPos, Point2D bBox) {
+		// WE NEED THE SCREEN to notify deaths?
 		//can we make the entity get the screen too? we need it for dx dy changes as well as resizing
 		pos = pPos;
-		move = new Point2D(500,500); //we need to test to determine a manageable speed
+		standardMove(500,500); //standard will be the standard speed //we need to test to determine a manageable speed
 	}
 	
+	public void standardMove(int i, int j) {
+		
+			move = new Point2D(500,500); //we need to test to determine a manageable speed
+		
+	}
+
 	/** return the center of gravity of the image based on pixels */
 	public int[] getCOG() {
 		int cog [] = {Render.ScreenDim_X/2,Render.ScreenDim_Y/2};
@@ -42,7 +50,7 @@ public class Entity {
 	}
 
 	public boolean collidesWith(Entity other) {
-		//set bounds and then check for collision
+		//set bounds and then check for collision Just use the bounds class
 		int tPosX = pos.getCoords()[0];
 		int tPosY = pos.getCoords()[1];
 		int oPosX = other.getCoords()[0];
