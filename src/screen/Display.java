@@ -4,6 +4,7 @@ import utils.Point2D;
 /** Holds objects on the screen */
 public class Display {
 	public static final int PlayerMoveAmount = 8;
+	public static final 
 	private Entity playerEnt;
 	private Point2D playerPos;
 	public Display() {
