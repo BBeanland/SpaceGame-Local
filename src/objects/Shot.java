@@ -1,8 +1,6 @@
 package objects;
-
 import utils.Point2D;
-
-public class Shot extends Entity{
+public class Shot extends Entity {
 	//make not exactly within boundaries 
 	//pos will be the enemy entity pos + his 1/2 box + 1 
 	boolean alien = false;

@@ -1,9 +1,6 @@
 package objects;
-
 import utils.Point2D;
-
 public class SpaceShip extends Entity {
-	
 	public SpaceShip(int eType, Point2D pPos, Point2D bBox) { //we can make bBox the texture size :3 // we havent used eType yet
 		super(eType, pPos,bBox); 
 		standardMove(400,400); //changes the move we dont have to use the method 

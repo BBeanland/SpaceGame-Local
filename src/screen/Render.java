@@ -74,11 +74,12 @@ public class Render {
 	public void loop() {
 		GLContext.createFromCurrent();
 		// Set the clear color
-		glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+		//glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
 		// Run the rendering loop until the user has attempted to close
 		// the window or has pressed the ESCAPE key.
 		while (glfwWindowShouldClose(window) == GL_FALSE) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
+			disp.drawGame();
 			glfwSwapBuffers(window); // swap the color buffers
 			// Poll for window events. The key callback above will only be
 			// invoked during this call.
